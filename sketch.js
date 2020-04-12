@@ -1,7 +1,7 @@
-// Teachable Machine
-// The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/TeachableMachine/2-teachable-game.html
-// https://editor.p5js.org/codingtrain/sketches/tqoOkW_ai
+// Program made by Daniel Lages
+// Github: https://github.com/daniellages
+// SmartSnake repository: https://github.com/daniellages/SmartSnake
+// Remember to insert your modelURL from Teachable Machine in line 15
 
 // The video
 let video;
@@ -12,25 +12,29 @@ let label = "waiting...";
 
 // The classifier
 let classifier;
-let modelURL = 'https://teachablemachine.withgoogle.com/models/PJgc3RkTH/';
+let modelURL = '';  // <-- Insert your modelURL from Teachable Machine
 
-// STEP 1: Load the model!
+// STEP 1: Load the model
 function preload() {
   classifier = ml5.imageClassifier(modelURL + 'model.json');
 }
 
 // Snake Game Variables
 let snake;
-let rez = 10;
+let rez = 10; // It is basically the speed of the game
 let food;
-let w;
-let h;
+let w;  // width
+let h;  // height
+
+// Canvas Size
+let canvasWidth = 1080; // <-- Change the size of the canvas as you like!
+let canvasHeight = 810;
 
 function setup() {
-  createCanvas(1080, 810);
+  createCanvas(canvasWidth, canvasHeight);
   // Create the video
   video = createCapture(VIDEO);
-  video.size(1080, 810); //640 480
+  video.size(canvasWidth, canvasHeight);
   video.hide();
   // Mirro the video since we trained it that way!
   flipVideo = ml5.flipImage(video);
@@ -76,7 +80,7 @@ function controlSnake() {
 function draw() {
   background(255);
 
-  // Draw the video?
+  // Draw the video
   image(flipVideo, 0, 0);
   textSize(32);
   fill(0);
@@ -98,8 +102,6 @@ function draw() {
 
   if (snake.endGame()) {
     print("END GAME");
-    //background(255, 0, 0);
-    //noLoop();
     setup();
   }
 
@@ -108,14 +110,14 @@ function draw() {
   rect(food.x, food.y, 1, 1);
 }
 
-// STEP 3: Get the classification!
+// STEP 3: Get the classification
 function gotResults(error, results) {
   if (error) {
     console.error(error);
     return;
   }
   label = results[0].label;
-  // Control the snake and classify again!
+  // Control the snake and classify again
   controlSnake();
   classifyVideo();
 }

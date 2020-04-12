@@ -1,3 +1,7 @@
+// Program made by Daniel Lages
+// Github: https://github.com/daniellages
+// SmartSnake repository: https://github.com/daniellages/SmartSnake
+
 class Snake {
 
     constructor() {
@@ -56,8 +60,6 @@ class Snake {
         head.x += this.xdir;
         head.y += this.ydir;
         this.body.push(head);
-        //this.body[0].x += this.xdir;
-        //this.body[0].y += this.ydir;
     }
 
     show() {

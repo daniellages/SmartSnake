@@ -9,7 +9,7 @@ If you want you can change it and adapt it to do whatever you want with it.
 
 The SmartSnake game is a very simple version that can be upgraded at any time. I used [The Coding Train](https://thecodingtrain.com/) help to do this, feel free to check the website and some of their projects.
 
-### Videos:
+**Videos:**
 - [Snake Game](https://www.youtube.com/watch?v=OMoVcohRgZA)
 - [Teachable Machine](https://www.youtube.com/watch?v=UPgxnGC8oBU)
 
